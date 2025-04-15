@@ -20,6 +20,18 @@ class LoginViewController: UIViewController {
     configureLoginView();
   };
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated);
+    
+    UIView.animate(withDuration: 3) {
+      self.loginView.title.alpha = 1;
+    };
+    
+    UIView.animate(withDuration: 5) {
+      self.loginView.googleButton.alpha = 1;
+    };
+  };
+  
   private func configureLoginView() {
     view.addSubview(loginView);
     

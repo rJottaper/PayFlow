@@ -117,6 +117,7 @@ extension LoginView {
     title.font = UIFont.systemFont(ofSize: 32, weight: .semibold);
     title.textAlignment = .center;
     title.numberOfLines = 0;
+    title.alpha = 0;
     
     NSLayoutConstraint.activate([
       title.topAnchor.constraint(equalTo: qrcodeImage.bottomAnchor, constant: 20),
@@ -130,6 +131,7 @@ extension LoginView {
     
     googleButton.translatesAutoresizingMaskIntoConstraints = false;
     googleButton.addTarget(self, action: #selector(didGoogleButtonTapped), for: .touchUpInside);
+    googleButton.alpha = 0;
     
     NSLayoutConstraint.activate([
       googleButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
