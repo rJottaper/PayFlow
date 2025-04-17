@@ -36,7 +36,7 @@ class HomeViewController: UITabBarController {
       payFlowHeader.heightAnchor.constraint(equalToConstant: 200)
     ]);
     
-    additionalSafeAreaInsets.top = 100
+    additionalSafeAreaInsets.top = 100;
   };
   
   private func configurePayFlowTabBar() {

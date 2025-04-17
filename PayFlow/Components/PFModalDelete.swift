@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PFModalDeleteViewController: UIViewController {
+class PFModalDelete: UIViewController {
   let titleLabel = UILabel();
   let paidButton = UIButton();
   let unpaidButton = UIButton();
@@ -106,10 +106,10 @@ class PFModalDeleteViewController: UIViewController {
     deleteButton.setTitleColor(.red, for: .normal);
     deleteButton.tintColor = .red;
     deleteButton.setImage(UIImage(systemName: "trash"), for: .normal);
-    deleteButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 14);
+    deleteButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20);
     
     NSLayoutConstraint.activate([
-      deleteButton.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 20),
+      deleteButton.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 15),
       deleteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       deleteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       deleteButton.heightAnchor.constraint(equalToConstant: 40)

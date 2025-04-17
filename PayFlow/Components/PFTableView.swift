@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol PFTableViewDelegate: AnyObject {
+  func didTapCell(at indexPath: IndexPath);
+};
+
 class PFTableView: UITableView {
+  weak var customDelegate: PFTableViewDelegate?
+  
   override init(frame: CGRect, style: UITableView.Style) {
     super.init(frame: frame, style: style);
     
@@ -47,5 +53,9 @@ extension PFTableView: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
+  };
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    customDelegate?.didTapCell(at: indexPath);
   };
 };

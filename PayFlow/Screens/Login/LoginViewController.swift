@@ -25,9 +25,6 @@ class LoginViewController: UIViewController {
     
     UIView.animate(withDuration: 3) {
       self.loginView.title.alpha = 1;
-    };
-    
-    UIView.animate(withDuration: 5) {
       self.loginView.googleButton.alpha = 1;
     };
   };
