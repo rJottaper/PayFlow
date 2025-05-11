@@ -1,20 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-export default function App() {
+import Colors from './src/constants/Colors';
+
+import Login from './src/screens/login';
+import { useFonts } from 'expo-font';
+
+const App = () => {
+  const [fontsLoaded] = useFonts({
+    'Lexend-Regular': require('./assets/fonts/Lexend-Regular.ttf'),
+    'Lexend-Medium': require('./assets/fonts/Lexend-Medium.ttf'),
+    'Lexend-SemiBold': require('./assets/fonts/Lexend-SemiBold.ttf'),
+    'Lexend-Bold': require('./assets/fonts/Lexend-Bold.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Login />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    backgroundColor: Colors.primaryWhite
+  }
 });
+
+export default App;
