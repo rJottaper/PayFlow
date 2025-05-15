@@ -1,9 +1,7 @@
 import { View, StyleSheet } from 'react-native';
-
-import Colors from './src/constants/Colors';
-
-import Login from './src/screens/login';
 import { useFonts } from 'expo-font';
+
+import Routes from './src/routes';
 
 const App = () => {
   const [fontsLoaded] = useFonts({
@@ -19,15 +17,14 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Login />
+      <Routes />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: Colors.primaryWhite
+    flex: 1
   }
 });
 
