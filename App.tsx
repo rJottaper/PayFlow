@@ -1,11 +1,17 @@
+import { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-
-import Colors from './src/constants/Colors';
-
-import Login from './src/screens/login';
+import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 
-const App = () => {
+import Routes from './src/routes';
+
+SplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+});
+
+const App = () => {  
+  const [appIsReady, setAppIsReady] = useState(false);
   const [fontsLoaded] = useFonts({
     'Lexend-Regular': require('./assets/fonts/Lexend-Regular.ttf'),
     'Lexend-Medium': require('./assets/fonts/Lexend-Medium.ttf'),
@@ -13,21 +19,32 @@ const App = () => {
     'Lexend-Bold': require('./assets/fonts/Lexend-Bold.ttf'),
   });
 
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.preventAutoHideAsync();
+      SplashScreen.hide();
+      setAppIsReady(true);
+    }, 2000);
+  }, []);
+
   if (!fontsLoaded) {
     return null;
   };
 
+  if (!appIsReady) {
+    return null
+  };
+
   return (
     <View style={styles.container}>
-      <Login />
+      <Routes />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: Colors.primaryWhite
+    flex: 1
   }
 });
 
